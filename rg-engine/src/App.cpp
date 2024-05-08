@@ -31,7 +31,7 @@ namespace rg {
     }
 
     void App::update_() {
-        // Update engine systems
+        // Update rg-engine systems
         spdlog::info("App::update_");
 
         // Update user systems
@@ -39,7 +39,7 @@ namespace rg {
     }
 
     void App::draw_() {
-        // Preparation engine does for a draw_
+        // Preparation rg-engine does for a draw_
         spdlog::info("App::draw_");
 
         // User draw_
@@ -50,7 +50,7 @@ namespace rg {
         // Terminate user systems
         terminate();
 
-        // Terminate engine systems
+        // Terminate rg-engine systems
         spdlog::info("App::terminate_");
     }
 

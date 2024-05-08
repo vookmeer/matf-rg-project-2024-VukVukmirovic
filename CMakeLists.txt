@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.28)
-project(matf_rg_engine)
+cmake_minimum_required(VERSION 3.21)
+project(matf-rg-project)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -17,13 +17,17 @@ add_subdirectory(libs/glfw)
 # glad
 add_subdirectory(libs/glad)
 
-set(LIBS glfw glad OpenGL::GL spdlog::spdlog)
+# rg-engine
+add_subdirectory(rg-engine)
+
+set(LIBS glfw glad OpenGL::GL spdlog::spdlog rg-engine)
 
 ############## Sources ###############
 
-file(GLOB sources engine/*.cpp)
-file(GLOB headers engine/*.hpp)
+file(GLOB sources src/*.cpp)
+file(GLOB headers include/*.hpp)
 
 ################ Exec ################
-add_executable(matf_rg_engine main.cpp ${sources} ${headers})
-target_link_libraries(matf_rg_engine PRIVATE ${LIBS})
+add_executable(${PROJECT_NAME} ${sources} ${headers})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBS})
+add_dependencies(${PROJECT_NAME} ${LIBS})

@@ -1,5 +1,5 @@
-#include "engine/App.hpp"
-#include <spdlog/spdlog.h>
+#include "App.hpp"
+#include "spdlog/spdlog.h"
 
 /**
  * Student implements rg::App for their application.
