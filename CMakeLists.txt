@@ -9,7 +9,7 @@ find_package(OpenGL REQUIRED)
 
 # spdlog
 add_subdirectory(libs/spdlog)
-add_compile_definitions(SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE SPDLOG_DEBUG_ON SPDLOG_TRACE_ON)
+add_compile_definitions(SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE SPDLOG_DEBUG_ON SPDLOG_TRACE_ON RG_ENGINE_TRACE)
 
 #glfw
 add_subdirectory(libs/glfw)
@@ -31,3 +31,5 @@ file(GLOB headers include/*.hpp)
 add_executable(${PROJECT_NAME} ${sources} ${headers})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBS})
 add_dependencies(${PROJECT_NAME} ${LIBS})
+
+add_custom_target(matf-rg-project-format COMMAND clang-format -i ${sources} ${headers})
